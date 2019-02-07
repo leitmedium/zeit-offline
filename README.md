@@ -23,4 +23,8 @@ $ wget http://xml.zeit.de/2009/29/Pooh -O artikel.xml
 $ xsltproc zeitoffline.xslt artikel.xml > artikel.html
 ```
 
+TODO
+
+ - Artikelbilder werden derzeit nicht angezeigt
+ - Design mit CSS etwas aufhübschen
 
