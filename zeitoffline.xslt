@@ -7,7 +7,6 @@
    <h1><xsl:value-of select="article/body/title"/></h1>
    <p><i>von: <xsl:value-of select="article/head/author/display_name"/></i><br/>
      veröffentlicht am: <xsl:value-of select="substring(article/head/attribute[@name='date_first_released'],1,10)"/></p>
-   <p><i><xsl:value-of select="article/teaser/text"/></i></p>
    <xsl:apply-templates/>
    </body>
   </html>
@@ -22,6 +21,7 @@
 <xsl:template match="bu" />
 <xsl:template match="teaser" />
 <xsl:template match="title" />
+<xsl:template match="copyright" />
 <xsl:template match="division/image">
   <p>
     <img>
