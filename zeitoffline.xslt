@@ -3,6 +3,15 @@
 <xsl:template match="/">
   <html>
     <head><title><xsl:value-of select="article/body/title"/></title></head>
+    <style type="text/css">
+      body {
+      margin-left: 40px;
+      max-width: 820px;
+      }
+      img { padding-bottom: 5px; }
+      span.bildunterschrift { font-size: small; }
+      span.copyright { font-size:x-small; }
+    </style>
    <body>
    <h1><xsl:value-of select="article/body/title"/></h1>
    <p><i>von: <xsl:value-of select="article/head/author/display_name"/></i><br/>
@@ -29,7 +38,11 @@
       <xsl:attribute name="alt"><xsl:value-of select="./@alt_local"/></xsl:attribute>
     </img>
     <br />
-    <xsl:value-of select="./@alt_local"/><br /><xsl:value-of select="copyright"/>
+    <span class="bildunterschrift"><xsl:value-of select="./@alt_local"/></span>
+    <xsl:if test="copyright/text()">
+      <br />
+      <span class="copyright">© <xsl:value-of select="copyright"/></span>
+    </xsl:if>
   </p>
 </xsl:template>
 <xsl:template match="intertitle"> <h3><xsl:copy-of select="."/></h3> </xsl:template>
