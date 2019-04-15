@@ -67,7 +67,7 @@ Einfacher geht es mit dem Beispiel-Script render.sh, das die Schritte
 automatisch durchführt, wenn die notwendigen Programme vorhanden sind:
 
 ```
-$ render.sh https://www.zeit.de/2009/29/Pooh
+$ ./render.sh https://www.zeit.de/2009/29/Pooh
 ```
 
 ## Mindestvoraussetzungen
