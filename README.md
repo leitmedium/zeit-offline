@@ -84,12 +84,12 @@ MacOS getestet.
   es immer wieder Artikel, deren Struktur aktuell nicht perfekt vom
   Stylesheet behandelt werden.
 * Das Design könnte durchaus mit CSS etwas attraktiver gemacht werden
-  und sich besser an verschiedene Bildschirm-größen anpassen.
+  und sich besser an verschiedene Bildschirmgrößen anpassen.
 * Für das Lesen eines Artikels unter Windows 3.11 war es zusätzlich
   nötig, von UTF8 nach Latin umzuwandeln. Dies könnte per Option ins
   render.sh integriert werden. Beispiel: `iconv -f UTF-8 -t ISO-8859-1
   -c artikel.html > latin.htm`
-* Die Integration in ein Browser-Plugin wäre praktisch, muss ggfls. aber
+* Die Integration in ein Browser-Plugin wäre praktisch, muss ggfs. aber
   rechtlich geprüft werden.
 
 ## Warum "zeitoffline"
@@ -97,7 +97,7 @@ MacOS getestet.
 Der Name verweist darauf, dass die Umwandlung der Artikel nicht
 automatisiert online erfolgt, sondern ausschließlich auf dem eigenen
 Rechner. Die Artikelfotos werden übrigens nicht gespeichert, sondern
-beim Betrachten eines Aritkels von einer Original-Quelle nachgeladen.
+beim Betrachten eines Artikels von einer Original-Quelle nachgeladen.
 
 ## Lizenz
 
