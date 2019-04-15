@@ -48,7 +48,7 @@ EOF
 }
 
 main() {
-    local filename=$(mktemp -t zeitoffline.XXXXXX.html)
+    local filename=artikel.html
     if [ $# -eq 1 ]; then
         get $1 | convert > $filename
         view $filename
