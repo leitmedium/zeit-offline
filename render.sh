@@ -42,7 +42,7 @@ Usage: $0 URL
 
 Converts articles from zeit.de from XML to simple HTML.
 
-Requires either curl or wget for downloading, xslt for conversion and
+Requires either curl or wget for downloading, xsltproc for conversion and
 xdg-open or open for viewing.
 EOF
 }
