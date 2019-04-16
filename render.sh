@@ -47,8 +47,12 @@ xdg-open or open for viewing.
 EOF
 }
 
+make_filename() {
+    echo $(mktemp -u ${TMPDIR:-/tmp}/artikel.XXXXXX).html
+}
+
 main() {
-    local filename=artikel.html
+    local filename=$(make_filename)
     if [ $# -eq 1 ]; then
         get $1 | convert > $filename
         view $filename
