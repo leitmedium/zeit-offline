@@ -1,21 +1,65 @@
 #!/bin/bash
 
-URL=${1/https:\/\/www/http:\/\/xml}
+has_program() {
+    hash $1 2> /dev/null
+    return $?
+}
 
-if hash curl 2>/dev/null ; then
-  curl -s $URL | xsltproc zeitoffline.xslt - > artikel.html
-elif hash wget 2>/dev/null ; then
-  wget $URL --quiet -O - | xsltproc zeitoffline.xslt - > artikel.html
-else
-  echo "Neither curl nor wget found. Aborting."
-  exit 1
-fi
+get() {
+    local url=${1/https:\/\/www/http:\/\/xml}
 
-if hash xdg-open 2>/dev/null ; then
-  xdg-open artikel.html
-elif hash open 2>/dev/null ; then
-  open artikel.html
-else
-  echo "Neither xdb-open nor open found. Aborting, as I don't know how to open your browser with artikel.html"
-  exit 1
-fi
+    if has_program curl; then
+        curl -s $url
+    elif has_program wget; then
+        wget $url --quiet -O -
+    else
+        echo "Neither curl nor wget found. Aborting."
+        usage
+        exit 1
+    fi
+}
+
+convert() {
+    xsltproc zeitoffline.xslt -
+}
+
+view() {
+    local document=$1
+    if has_program xxdg-open; then
+        xdg-open $document
+    elif has_program open; then
+        open $document
+    else
+        echo "Neither xdg-open nor open found. Aborting, as I don't know how to open your browser"
+        usage
+        exit 1
+    fi
+}
+
+usage() {
+    cat <<EOF
+Usage: $0 URL
+
+Converts articles from zeit.de from XML to simple HTML.
+
+Requires either curl or wget for downloading, xslt for conversion and
+xdg-open or open for viewing.
+EOF
+}
+
+make_filename() {
+    echo $(mktemp -u ${TMPDIR:-/tmp}/artikel.XXXXXX).html
+}
+
+main() {
+    local filename=$(make_filename)
+    if [ $# -eq 1 ]; then
+        get $1 | convert > $filename
+        view $filename
+    else
+        usage
+        exit 1
+    fi
+}
+
+main "$@"
