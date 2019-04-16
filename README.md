@@ -19,7 +19,7 @@ Volltext über das XML-Interface unter xml.zeit.de. Die XML-Version einer
 Seite kann erreicht werden, in dem in der URL das "https://www" durch
 "http://xml" ersetzt wird (Beispiel siehe unten). Der klassische Weg, um
 XML in ein anderes Format umzuwandeln ist eine [XSL
-Transormation](https://de.wikipedia.org/wiki/XSL_Transformation), kurz XSLT.
+Transformation](https://de.wikipedia.org/wiki/XSL_Transformation), kurz XSLT.
 Kernstück dieses Projekt ist das XSLT "zeitoffline.xslt", mit dem
 Artikel von XML in HTML umgewandelt und dann im Browser gelesen
 werden können. Die Umwandlung ist absichtlich einfach gehalten und
