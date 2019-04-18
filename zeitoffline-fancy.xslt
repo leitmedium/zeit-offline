@@ -49,6 +49,9 @@
                 }
                 span.bildunterschrift { font-size: small; }
                 span.copyright { font-size:x-small; }
+                p {
+                text-align: justify;
+                }
             </style>
             <body>
                 <div class="container">
@@ -103,23 +106,25 @@
     <xsl:template match="title"/>
     <xsl:template match="copyright"/>
     <xsl:template match="division/image">
-        <p>
-            <img>
-                <xsl:attribute name="src"><xsl:value-of select="./@base-id"/>wide__820x461__desktop</xsl:attribute>
-                <xsl:attribute name="alt">
-                    <xsl:value-of select="./@alt_local"/>
-                </xsl:attribute>
-            </img>
-            <span class="bildunterschrift sans">
-                <xsl:value-of select="./@caption_local"/>
-            </span>
-            <xsl:if test="copyright/text()">
-                <br/>
-                <span class="copyright sans">©
-                    <xsl:value-of select="copyright"/>
+        <xsl:if test="./@base-id">
+            <p>
+                <img>
+                    <xsl:attribute name="src"><xsl:value-of select="./@base-id"/>wide__820x461__desktop</xsl:attribute>
+                    <xsl:attribute name="alt">
+                        <xsl:value-of select="./@alt_local"/>
+                    </xsl:attribute>
+                </img>
+                <span class="bildunterschrift sans">
+                    <xsl:value-of select="./@caption_local"/>
                 </span>
-            </xsl:if>
-        </p>
+                <xsl:if test="copyright/text()">
+                    <br/>
+                    <span class="copyright sans">©
+                        <xsl:value-of select="copyright"/>
+                    </span>
+                </xsl:if>
+            </p>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="intertitle">
         <h3>
