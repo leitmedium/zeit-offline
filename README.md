@@ -70,6 +70,18 @@ automatisch durchführt, wenn die notwendigen Programme vorhanden sind:
 $ ./render.sh https://www.zeit.de/2009/29/Pooh
 ```
 
+Soll ein moderneres Design verwendet werden:
+```
+$ ./render.sh -f https://www.zeit.de/2009/29/Pooh
+```
+
+Sollen die Bilder lokal gespeichert werden:
+```
+$ ./render.sh -d https://www.zeit.de/2009/29/Pooh
+```
+
+Die beiden Optionen lassen sich auch kombinieren.
+
 ## Mindestvoraussetzungen
 
 Theoretisch kann eine Vielzahl von Software zum Einsatz kommen. Getestet
@@ -83,8 +95,6 @@ MacOS getestet.
 * Da die Artikel auf zeit.de nicht völlig homogen formatiert sind, gibt
   es immer wieder Artikel, deren Struktur aktuell nicht perfekt vom
   Stylesheet behandelt werden.
-* Das Design könnte durchaus mit CSS etwas attraktiver gemacht werden
-  und sich besser an verschiedene Bildschirmgrößen anpassen.
 * Für das Lesen eines Artikels unter Windows 3.11 war es zusätzlich
   nötig, von UTF8 nach Latin umzuwandeln. Dies könnte per Option ins
   render.sh integriert werden. Beispiel: `iconv -f UTF-8 -t ISO-8859-1
@@ -96,8 +106,9 @@ MacOS getestet.
 
 Der Name verweist darauf, dass die Umwandlung der Artikel nicht
 automatisiert online erfolgt, sondern ausschließlich auf dem eigenen
-Rechner. Die Artikelfotos werden übrigens nicht gespeichert, sondern
-beim Betrachten eines Artikels von einer Original-Quelle nachgeladen.
+Rechner. Die Artikelfotos werden übrigens standardmäßig nicht gespeichert,
+sondern beim Betrachten eines Artikels von einer Original-Quelle nachgeladen.
+Auf Wunsch kann für den Download der `-d` Parameter verwendet werden.
 
 ## Lizenz
 

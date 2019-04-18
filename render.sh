@@ -50,12 +50,16 @@ view() {
 
 usage() {
     cat <<EOF
-Usage: $0 URL
+Usage: $0 [-df] URL
 
 Converts articles from zeit.de from XML to simple HTML.
 
 Requires either curl or wget for downloading, xsltproc for conversion and
 xdg-open or open for viewing.
+
+-d : Download images locally
+
+-f : Produce a more fancy version with better styling
 EOF
 }
 
