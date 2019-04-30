@@ -25,7 +25,7 @@ convert() {
 
 view() {
     local document=$1
-    if has_program xxdg-open; then
+    if has_program xdg-open; then
         xdg-open $document
     elif has_program open; then
         open $document
